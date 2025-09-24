@@ -1,6 +1,6 @@
 ---
 title: Home
-description: A guide in my new Starlight docs site.
+description: A guide in Cortex Data Framework Docs.
 ---
 
 ## Welcome to Cortex Data Framework

@@ -43,6 +43,7 @@ export default defineConfig({
 							{ label: 'Sink Operators', slug: 'streams/operators/sink' },
 							{ label: 'Custom Operators', slug: 'streams/operators/custom' },]
 						},
+						{ label: 'Joins', slug: 'streams/joins' },
 						{ label: 'Branches', slug: 'streams/branches' },
 					],
 					
@@ -54,6 +55,10 @@ export default defineConfig({
 						{ label: 'Overview', slug: 'states/overview' },
 						{ label: 'In-Memory Store', slug: 'states/in-memory' },
 						{ label: 'RocksDb Store', slug: 'states/rocksdb' },
+						{ label: 'Microsoft SQL Server Store', slug: 'states/ms-sql' },
+						{ label: 'PostgreSQL Store', slug: 'states/postgresql' },
+						{ label: 'SQLite Store', slug: 'states/sqlite' },
+						{ label: 'Clickhouse Store', slug: 'states/clickhouse' },
 						{ label: 'MongoDb Store', slug: 'states/mongodb' },
 						{ label: 'Cassandra Store', slug: 'states/cassandradb' },
 					],
@@ -99,6 +104,16 @@ export default defineConfig({
 						{ label: 'Overview', slug: 'mediator-design-pattern/overview' },
 						{ label: 'Getting Started', slug: 'mediator-design-pattern/getting-started' },
 						{ label: 'CQRS', slug: 'mediator-design-pattern/cqrs' },
+					],
+					
+				},
+				{
+					label: 'Examples and Tutorials',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Basic Examples', slug: 'examples-and-tutorials/basic-examples' },
+						{ label: 'Intermediate Examples', slug: 'examples-and-tutorials/intermediate-examples' },
+						{ label: 'Advanced Examples', slug: 'examples-and-tutorials/advanced-examples' },
 					],
 					
 				},
