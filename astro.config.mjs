@@ -36,6 +36,7 @@ export default defineConfig({
 						{ label: 'Operators', collapsed: true, items: [
 							
 							{ label: 'Overview', slug: 'streams/operators/operators' },
+							{ label: 'Source Operators', slug: 'streams/operators/source' },
 							{ label: 'Map Operators', slug: 'streams/operators/map' },
 							{ label: 'Filter Operators', slug: 'streams/operators/filter' },
 							{ label: 'Aggregate Operators', slug: 'streams/operators/aggregate' },
@@ -45,7 +46,7 @@ export default defineConfig({
 						},
 						{ label: 'Integrations', collapsed: true, items: [
 							
-							{ label: 'Kafka', slug: 'streams/integrations/kafka' },
+							{ label: 'Apache Kafka', slug: 'streams/integrations/kafka' },
 							{ label: 'Apache Pulsar', slug: 'streams/integrations/apache-pulsar' },
 							{ label: 'RabbitMQ', slug: 'streams/integrations/rabbit-mq' },
 							{ label: 'Amazon SQS', slug: 'streams/integrations/awssqs' },

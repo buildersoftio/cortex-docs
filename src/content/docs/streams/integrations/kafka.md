@@ -1,5 +1,5 @@
 ---
-title: Kafka
+title: Apache Kafka
 description: How to integrate Kafka in Cortex.Streams
 ---
 
