@@ -43,6 +43,19 @@ export default defineConfig({
 							{ label: 'Sink Operators', slug: 'streams/operators/sink' },
 							{ label: 'Custom Operators', slug: 'streams/operators/custom' },]
 						},
+						{ label: 'Integrations', collapsed: true, items: [
+							
+							{ label: 'Kafka', slug: 'streams/integrations/kafka' },
+							{ label: 'Apache Pulsar', slug: 'streams/integrations/apache-pulsar' },
+							{ label: 'RabbitMQ', slug: 'streams/integrations/rabbit-mq' },
+							{ label: 'Amazon SQS', slug: 'streams/integrations/awssqs' },
+							{ label: 'Azure Service Bus', slug: 'streams/integrations/azure-service-bus' },
+							{ label: 'Azure Blob Storage', slug: 'streams/integrations/azure-blob-storage' },
+							{ label: 'Amazon S3', slug: 'streams/integrations/s3' },
+							{ label: 'Files I/O', slug: 'streams/integrations/files' },
+							{ label: 'HTTP', slug: 'streams/integrations/http' },
+						    { label: 'Elasticsearch', slug: 'streams/integrations/elasticsearch' },]
+						},
 						{ label: 'Joins', slug: 'streams/joins' },
 						{ label: 'Branches', slug: 'streams/branches' },
 					],
