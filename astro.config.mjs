@@ -40,9 +40,18 @@ export default defineConfig({
 							{ label: 'Map Operators', slug: 'streams/operators/map' },
 							{ label: 'Filter Operators', slug: 'streams/operators/filter' },
 							{ label: 'Aggregate Operators', slug: 'streams/operators/aggregate' },
-							{ label: 'Window Operators', slug: 'streams/operators/window' },
 							{ label: 'Sink Operators', slug: 'streams/operators/sink' },
-							{ label: 'Custom Operators', slug: 'streams/operators/custom' },]
+							{ label: 'Custom Operators', slug: 'streams/operators/custom' },
+						
+							{ label: 'Window Operators', collapsed: true, items: [
+								{ label: 'Window Operators Overview', slug: 'streams/operators/windows/windows-operators-overview' },
+								{ label: 'Tumbling Window', slug: 'streams/operators/windows/tumbling-window' },
+								{ label: 'Sliding Window', slug: 'streams/operators/windows/sliding-window' },
+								{ label: 'Session Window', slug: 'streams/operators/windows/session-window' },
+								{ label: 'Window Triggers', slug: 'streams/operators/windows/window-triggers' },
+								{ label: 'Window Types Quick Reference', slug: 'streams/operators/windows/window-types-quick-reference' },
+								{ label: 'Advanced Window Configuration', slug: 'streams/operators/windows/advanced-window-configuration' },]
+						}]
 						},
 						{ label: 'Integrations', collapsed: true, items: [
 							
@@ -116,8 +125,28 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Overview', slug: 'mediator-design-pattern/overview' },
+						{ label: 'Architecture', collapsed: true, items: [
+							
+							{ label: 'Overview', slug: 'mediator-design-pattern/architecture/architecture-overview' },
+							{ label: 'Pipelines', slug: 'mediator-design-pattern/architecture/pipeline-behaviors' },
+							{ label: 'Exception Handling', slug: 'mediator-design-pattern/architecture/exception-handling' },
+							{ label: 'Caching', slug: 'mediator-design-pattern/architecture/caching' },
+							{ label: 'Request Processors', slug: 'mediator-design-pattern/architecture/request-processors' },
+						]},
 						{ label: 'Getting Started', slug: 'mediator-design-pattern/getting-started' },
+						{ label: 'Quick Start Guide', slug: 'mediator-design-pattern/quick-start-guide' },
+						{ label: 'Commands', slug: 'mediator-design-pattern/commands' },
+						{ label: 'Queries', slug: 'mediator-design-pattern/queries' },
+						{ label: 'Notifications', slug: 'mediator-design-pattern/notifications' },
+						{ label: 'Streaming Queries', slug: 'mediator-design-pattern/streaming-queries' },
+						
+						{ label: 'Integrations', collapsed: true, items: [
+							
+							{ label: 'FluentValidation', slug: 'mediator-design-pattern/integrations/fluent-validation' },
+						]},
 						{ label: 'CQRS', slug: 'mediator-design-pattern/cqrs' },
+						{ label: 'Vertical Slice Architecture', slug: 'mediator-design-pattern/vertical-slice-architecture' },
+						{ label: 'E-Commerce Application Example', slug: 'mediator-design-pattern/e-commerce' },
 					],
 					
 				},
@@ -130,12 +159,7 @@ export default defineConfig({
 						{ label: 'Advanced Examples', slug: 'examples-and-tutorials/advanced-examples' },
 					],
 					
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-				
+				}
 			],
 		}),
 	],

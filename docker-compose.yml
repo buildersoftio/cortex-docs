@@ -1,9 +1,7 @@
 services:
   # --- Prod profile: build-time Dockerfile above, served by Nginx on port 8080 ---
-  cortex-docs-prod:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  cortex-docs:
+    image: buildersoftdev/cortex-docs:v2.0.0
     ports:
       - "8080:80"
       - "8081:443"

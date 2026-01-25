@@ -22,7 +22,6 @@ public void ConfigureServices(IServiceCollection services)
 
     // 3. Add Cortex.Mediator
     services.AddCortexMediator(
-        configuration: Configuration,                // your app config
         handlerAssemblyMarkerTypes: new[] { typeof(Startup) },  // assemblies to scan
         configure: options =>
         {
@@ -39,7 +38,6 @@ public void ConfigureServices(IServiceCollection services)
 builder.Services.AddControllers();
 
 builder.Services.AddCortexMediator(
-      configuration: builder.Configuration, // your app config
       handlerAssemblyMarkerTypes: new[] { typeof(Program) }, // assemblies to scan
       configure: options =>
       {

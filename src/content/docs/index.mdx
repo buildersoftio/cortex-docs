@@ -1,47 +1,101 @@
 ---
-title: Welcome Cortex | Data Framework
-description: Buildersoft Cortex Data Framework Documentation
+title: Welcome to Cortex Data Framework
+description: Build real-time data streaming pipelines with ease
 template: splash
 hero:
-  tagline: Cortex Data Framework is a robust, extensible platform designed to facilitate real-time data streaming, processing, and state management.
+  tagline: A powerful, modular, and developer-friendly SDK for building real-time data processing pipelines with built-in state management and stream processing capabilities.
   image:
     file: ../../assets/cortex-small.svg
   actions:
     - text: Get started
       link: /get-started/home/
       icon: right-arrow
-    - text: Expore the framework
+    - text: Explore on GitHub
       link: https://github.com/buildersoftio/cortex
       icon: external
       variant: minimal
 ---
 
-
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-import { Aside } from '@astrojs/starlight/components';
+## Why Choose Cortex?
 
-<Aside>Work-in-progress</Aside>
-
-## Next steps
-
-<CardGrid>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid stagger>
+	<Card title="Stream Processing Simplified" icon="rocket">
+		Intuitive APIs for defining sources, sinks, and operators. Build complex pipelines with minimal boilerplate code.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Rich State Management" icon="star">
+		Out-of-the-box support for multiple state stores including RocksDB, PostgreSQL, MongoDB, Cassandra, and more.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Built-in Operators" icon="puzzle">
+		Pre-built operators for transformations, filtering, aggregations, windowing, and custom extensibility.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Production Ready" icon="approve-check">
+		Designed for real-world scenarios with built-in concurrency handling, persistence, and fault tolerance.
 	</Card>
 </CardGrid>
 
+## Key Features
 
+<CardGrid>
+	<Card title="Real-Time Data Streaming" icon="forward-slash">
+		Process data in real-time with support for various stream sources including Kafka, RabbitMQ, AWS SQS, Azure Service Bus, and more.
+	</Card>
+	<Card title="Multiple State Stores" icon="setting">
+		Choose from in-memory, RocksDB, PostgreSQL, MongoDB, Cassandra, ClickHouse, SQL Server, or SQLite for your state management needs.
+	</Card>
+	<Card title="Change Data Capture (CDC)" icon="document">
+		Built-in CDC support for MongoDB, PostgreSQL, and MS SQL Server to capture and process data changes.
+	</Card>
+	<Card title="Windowing & Aggregations" icon="bars">
+		Support for tumbling, sliding, and session windows with powerful aggregation capabilities.
+	</Card>
+	<Card title="Mediator Design Pattern" icon="random">
+		Implement CQRS and other architectural patterns with built-in mediator support.
+	</Card>
+	<Card title="Telemetry & Monitoring" icon="magnifier">
+		Integrate with OpenTelemetry for real-time metrics, logging, and distributed tracing.
+	</Card>
+</CardGrid>
+
+## Quick Start
+
+Get up and running with Cortex in minutes:
+
+<CardGrid>
+	<Card title="Getting Started" icon="open-book" link="/get-started/getting-started/">
+		Learn the basics and set up your first stream processing pipeline.
+	</Card>
+	<Card title="Streams Overview" icon="add-document" link="/streams/overview/">
+		Understand stream builders, operators, and how to construct data pipelines.
+	</Card>
+	<Card title="Examples & Tutorials" icon="pencil" link="/examples-and-tutorials/basic-examples/">
+		Explore practical examples from basic to advanced use cases.
+	</Card>
+	<Card title="State Management" icon="document" link="/states/overview/">
+		Configure and use different state stores for your applications.
+	</Card>
+</CardGrid>
+
+## Explore the Documentation
+
+<CardGrid>
+	<Card title="Stream Integration" icon="external" link="/streams/integrations/kafka/">
+		Connect to Kafka, RabbitMQ, AWS SQS, Azure, Elasticsearch, and more.
+	</Card>
+	<Card title="Stream Operators" icon="puzzle" link="/streams/operators/operators/">
+		Learn about map, filter, aggregate, window, and custom operators.
+	</Card>
+	<Card title="Aggregations" icon="bars" link="/aggregations/overview/">
+		Build complex aggregations with reduce, count, sum, average, and custom functions.
+	</Card>
+	<Card title="Type System" icon="information" link="/types/overview/">
+		Understand Cortex's type system with OneOf, AnyOf, and AllOf types.
+	</Card>
+</CardGrid>
+
+---
 
 <center>
-Built with ❤️ by the Buildersoft LLC.
+Built with ❤️ by Buildersoft LLC
 </center>

@@ -1,0 +1,6 @@
+docker build -t buildersoftdev/cortex-docs:v2.0.0 .                                                                                                                  
+docker push buildersoftdev/cortex-docs:v2.0.0
+
+docker-compose --profile prod up -d
+
+sudo docker-compose --profile prod up -d
