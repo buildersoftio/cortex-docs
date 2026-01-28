@@ -29,7 +29,7 @@ var source = new KafkaSourceOperator<MyEvent>(
     bootstrapServers: "localhost:9092",
     topic: "events");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("EventStream")
     .Stream(source)            // attach the source
     .Map(e => e with { ProcessedAt = DateTime.UtcNow })
@@ -47,7 +47,7 @@ If you call `StreamBuilder.Stream()` with **no arguments**, Cortex creates an **
 Example of an in-app stream:
 
 ```csharp
-var stream = StreamBuilder<int, int>
+var stream = StreamBuilder<int>
     .CreateNewStream("Numbers")
     .Stream()           // no external source
     .Filter(x => x % 2 == 0)
@@ -91,7 +91,7 @@ public class TimerSourceOperator : ISourceOperator
 }
 
 // attach the custom source
-var stream = StreamBuilder<DateTime, DateTime>
+var stream = StreamBuilder<DateTime>
     .CreateNewStream("TimeStream")
     .Stream(new TimerSourceOperator())
     .Sink(time => Console.WriteLine($"Current time: {time}"))

@@ -38,7 +38,7 @@ class Program
     static void Main(string[] args)
     {
         // Create and configure the stream with a Map operator and Console Sink
-        var stream = StreamBuilder<string, string>.CreateNewStream("ConsoleSinkStream")
+        var stream = StreamBuilder<string>.CreateNewStream("ConsoleSinkStream")
             .Stream()
             .Map(message => $"Processed Message: {message.ToUpper()}") // Transform message to uppercase
             .Sink(Console.WriteLine)                                    // Output to console

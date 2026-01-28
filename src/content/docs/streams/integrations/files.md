@@ -29,7 +29,7 @@ var source = new FileSourceOperator<Order>(
     filePath: "/path/to/orders.csv",
     fileFormat: FileFormat.CSV);
 
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("FileSourceExample")
     .Source(source)
     .Sink(order => Console.WriteLine($"Order: {order.Id} – {order.Product}"))
@@ -58,7 +58,7 @@ var sink = new FileSinkOperator<Order>(
     sinkMode: FileSinkMode.MultiFile,
     serializer: new DefaultJsonSerializer<Order>());
 
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("FileSinkExample")
     .Source()
     .Sink(sink)

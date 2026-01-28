@@ -60,7 +60,7 @@ var config2 = WindowConfiguration<Order>.Create()
 **Example: Order Processing in Batches**
 
 ```csharp
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("Order Batch Processor")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -98,7 +98,7 @@ var config2 = WindowConfiguration<Event>.Create()
 **Example: Real-time Dashboard Updates**
 
 ```csharp
-var stream = StreamBuilder<Metric, Metric>
+var stream = StreamBuilder<Metric>
     .CreateNewStream("Dashboard Metrics")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -135,7 +135,7 @@ var config = WindowConfiguration<Event>.Create()
 **Example: Long-Running Analysis with Progress**
 
 ```csharp
-var stream = StreamBuilder<Transaction, Transaction>
+var stream = StreamBuilder<Transaction>
     .CreateNewStream("Hourly Transaction Analysis")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -180,7 +180,7 @@ var config = WindowConfiguration<Event>.Create()
 
 ```csharp
 // Fire when we have 100 items OR after 30 seconds, whichever comes first
-var stream = StreamBuilder<LogEntry, LogEntry>
+var stream = StreamBuilder<LogEntry>
     .CreateNewStream("Log Batcher")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -219,7 +219,7 @@ var config = WindowConfiguration<Event>.Create()
 
 ```csharp
 // Only fire if we have at least 10 items AND 1 minute has passed
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("Order Aggregator")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -334,7 +334,7 @@ var priorityTrigger = new CustomTrigger<Alert>(
     description: "PriorityAlertTrigger"
 );
 
-var stream = StreamBuilder<Alert, Alert>
+var stream = StreamBuilder<Alert>
     .CreateNewStream("Alert Handler")
     .Stream()
     .AdvancedTumblingWindow<string>(

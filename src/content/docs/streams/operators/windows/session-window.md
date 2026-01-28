@@ -59,7 +59,7 @@ using Cortex.Streams.Operators.Windows;
 
 public record UserAction(string UserId, string Action, DateTime Timestamp);
 
-var stream = StreamBuilder<UserAction, UserAction>
+var stream = StreamBuilder<UserAction>
     .CreateNewStream("User Session Tracker")
     .Stream()
     .SessionWindow<string>(
@@ -103,7 +103,7 @@ public record ShoppingSession(
     decimal CartValue,
     List<string> ViewedProducts);
 
-var shoppingStream = StreamBuilder<ShoppingEvent, ShoppingEvent>
+var shoppingStream = StreamBuilder<ShoppingEvent>
     .CreateNewStream("Shopping Session Analyzer")
     .Stream()
     .SessionWindow<string>(
@@ -163,7 +163,7 @@ public record SupportInteraction(
     bool WasResolved,
     double CustomerSatisfactionEstimate);
 
-var supportStream = StreamBuilder<SupportEvent, SupportEvent>
+var supportStream = StreamBuilder<SupportEvent>
     .CreateNewStream("Support Interaction Analyzer")
     .Stream()
     .SessionWindow<string>(
@@ -240,7 +240,7 @@ public record GamingSession(
     decimal MoneySpent,
     bool RageQuit);  // Died and quit immediately
 
-var gamingStream = StreamBuilder<GameEvent, GameEvent>
+var gamingStream = StreamBuilder<GameEvent>
     .CreateNewStream("Gaming Session Tracker")
     .Stream()
     .SessionWindow<string>(
@@ -294,7 +294,7 @@ var config = WindowConfiguration<UserAction>.Create()
     .WithStateMode(WindowStateMode.Accumulating)
     .Build();
 
-var stream = StreamBuilder<UserAction, UserAction>
+var stream = StreamBuilder<UserAction>
     .CreateNewStream("Long Session Monitor")
     .Stream()
     .AdvancedSessionWindow<string>(
@@ -321,7 +321,7 @@ var config = WindowConfiguration<GameEvent>.Create()
     .WithStateMode(WindowStateMode.Discarding)  // Only new events since last emit
     .Build();
 
-var stream = StreamBuilder<GameEvent, GameEvent>
+var stream = StreamBuilder<GameEvent>
     .CreateNewStream("Game Event Batcher")
     .Stream()
     .AdvancedSessionWindow<string>(
@@ -343,7 +343,7 @@ var config = WindowConfiguration<ShoppingEvent>.Create()
     .WithStateMode(WindowStateMode.AccumulatingAndRetracting)
     .Build();
 
-var stream = StreamBuilder<ShoppingEvent, ShoppingEvent>
+var stream = StreamBuilder<ShoppingEvent>
     .CreateNewStream("Real-time Cart Tracker")
     .Stream()
     .AdvancedSessionWindow<string>(
@@ -376,7 +376,7 @@ var stream = StreamBuilder<ShoppingEvent, ShoppingEvent>
 
 ```csharp
 // Automatically created
-var stream = StreamBuilder<UserAction, UserAction>
+var stream = StreamBuilder<UserAction>
     .CreateNewStream("Demo")
     .Stream()
     .SessionWindow<string>(
@@ -396,7 +396,7 @@ var sessionStore = new RocksDbStateStore<string, SessionState<UserAction>>(
     path: "./session-state",
     name: "user-sessions");
 
-var stream = StreamBuilder<UserAction, UserAction>
+var stream = StreamBuilder<UserAction>
     .CreateNewStream("Persistent Sessions")
     .Stream()
     .SessionWindow<string>(
@@ -465,7 +465,7 @@ public class CustomerJourneyAnalyzer
             .WithStateMode(WindowStateMode.Accumulating)
             .Build();
 
-        var stream = StreamBuilder<CustomerTouchpoint, CustomerTouchpoint>
+        var stream = StreamBuilder<CustomerTouchpoint>
             .CreateNewStream("Customer Journey Tracker")
             .Stream()
             // Sessions based on customer activity with 1-hour gap

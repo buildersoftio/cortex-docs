@@ -51,7 +51,7 @@ using Cortex.States;
 public record SensorReading(string SensorId, double Temperature, DateTime Timestamp);
 
 // Create a stream with a 5-minute tumbling window
-var stream = StreamBuilder<SensorReading, SensorReading>
+var stream = StreamBuilder<SensorReading>
     .CreateNewStream("Temperature Monitor")
     .Stream()
     .TumblingWindow<string>(

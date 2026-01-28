@@ -52,7 +52,7 @@ namespace Cortex.Examples
             // Create a state store for user profiles.
             var userProfileStore = new InMemoryStateStore<string, UserProfile>("UserProfileStore");
             // Aggregate user profile updates into the state store.
-            var userProfileStream = StreamBuilder<UserProfile, UserProfile>
+            var userProfileStream = StreamBuilder<UserProfile>
                 .CreateNewStream("UserProfileStream")
                 .Stream()
                 .AggregateSilently(
@@ -63,7 +63,7 @@ namespace Cortex.Examples
                 .Build();
 
             // Create a stream for user activities that joins with the user profile store.
-            var userActivityStream = StreamBuilder<UserActivity, UserActivity>
+            var userActivityStream = StreamBuilder<UserActivity>
                 .CreateNewStream("UserActivityStream")
                 .Stream()
                 .Join(
@@ -133,7 +133,7 @@ namespace Cortex.Examples
             // Create a state store for sensor configurations.
             var sensorConfigStore = new InMemoryStateStore<string, SensorConfig>("SensorConfigStore");
             // Aggregate sensor configuration updates.
-            var sensorConfigStream = StreamBuilder<SensorConfig, SensorConfig>
+            var sensorConfigStream = StreamBuilder<SensorConfig>
                 .CreateNewStream("SensorConfigStream")
                 .Stream()
                 .AggregateSilently(
@@ -144,7 +144,7 @@ namespace Cortex.Examples
                 .Build();
 
             // Create a stream for sensor readings that joins with the sensor config store.
-            var sensorReadingStream = StreamBuilder<SensorReading, SensorReading>
+            var sensorReadingStream = StreamBuilder<SensorReading>
                 .CreateNewStream("SensorReadingStream")
                 .Stream()
                 .Join(
@@ -214,7 +214,7 @@ namespace Cortex.Examples
             // Create a state store for currency exchange rates.
             var exchangeRateStore = new InMemoryStateStore<string, ExchangeRate>("ExchangeRateStore");
             // Aggregate exchange rate updates.
-            var exchangeRateStream = StreamBuilder<ExchangeRate, ExchangeRate>
+            var exchangeRateStream = StreamBuilder<ExchangeRate>
                 .CreateNewStream("ExchangeRateStream")
                 .Stream()
                 .AggregateSilently(
@@ -225,7 +225,7 @@ namespace Cortex.Examples
                 .Build();
 
             // Create a stream for financial transactions that joins with the exchange rate store.
-            var transactionStream = StreamBuilder<Transaction, Transaction>
+            var transactionStream = StreamBuilder<Transaction>
                 .CreateNewStream("TransactionStream")
                 .Stream()
                 .Join(

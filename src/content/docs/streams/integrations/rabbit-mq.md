@@ -31,7 +31,7 @@ var source = new RabbitMQSourceOperator<MyMessage>(
     username: "guest",
     password: "guest");
 
-var stream = StreamBuilder<MyMessage, MyMessage>
+var stream = StreamBuilder<MyMessage>
     .CreateNewStream("RabbitConsumer")
     .Source(source)
     .Sink(msg => Console.WriteLine($"Received order {msg.Id}"))
@@ -57,7 +57,7 @@ var sink = new RabbitMQSinkOperator<MyMessage>(
     hostname: "localhost",
     queueName: "orders");
 
-var stream = StreamBuilder<MyMessage, MyMessage>
+var stream = StreamBuilder<MyMessage>
     .CreateNewStream("RabbitProducer")
     .Source()
     .Sink(sink)

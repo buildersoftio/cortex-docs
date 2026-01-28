@@ -11,9 +11,9 @@ To use branches in your stream processing pipeline, you start by creating a `Str
 ### Syntax
 
 ```csharp
-IStreamBuilder<TIn, TCurrent> AddBranch(
+IStreamBuilder<TIn> AddBranch(
     string name, 
-    Action<IBranchStreamBuilder<TIn, TCurrent>> config
+    Action<IBranchStreamBuilder<TIn>> config
 );
 ```
 - `name`: A unique identifier for the branch.
@@ -38,7 +38,7 @@ Below are several examples demonstrating how to use branches effectively.
 **Scenario**: You have a stream of integers and want to process even and odd numbers differently.
 
 ```csharp
-        var stream = StreamBuilder<int, int>.CreateNewStream("NumberProcessingStream")
+        var stream = StreamBuilder<int>.CreateNewStream("NumberProcessingStream")
             .Stream()
               .AddBranch("EvenNumbers", branch =>
               {
@@ -95,7 +95,7 @@ Odd number processed: 15
 **Scenario**: Categorize temperature readings into `"Cold"`, `"Warm"`, and `"Hot"`.
 
 ```csharp
-        var stream = StreamBuilder<int, int>.CreateNewStream("TemperatureStream")
+        var stream = StreamBuilder<int>.CreateNewStream("TemperatureStream")
             .Stream()
             .AddBranch("Cold", branch =>
             {
@@ -142,7 +142,7 @@ Each branch filters temperatures based on defined ranges and prints a message ac
 **Scenario**: Process different types of log messages: `Info`, `Warning`, and `Error`.
 
 ```csharp
-        var stream = StreamBuilder<string, string>.CreateNewStream("LogProcessingStream")
+        var stream = StreamBuilder<string>.CreateNewStream("LogProcessingStream")
             .Stream()
             .AddBranch("InfoLogs", branch =>
             {
@@ -214,7 +214,7 @@ Each branch filters temperatures based on defined ranges and prints a message ac
 
     private static void Main(string[] args)
     {
-        var stream = StreamBuilder<Transaction, Transaction>.CreateNewStream("TransactionStream")
+        var stream = StreamBuilder<Transaction>.CreateNewStream("TransactionStream")
             .Stream()
             .AddBranch("FraudDetection", branch =>
             {
@@ -278,7 +278,7 @@ Suppose we have a stream of Customer objects. Each `Customer` has an `IsPremium`
 // public class Customer { public string Name; public bool IsPremium; public string Country; }
 
 // Creating a new stream (in this case we assume in-memory streaming, no external source)
-var stream = StreamBuilder<Customer, Customer>
+var stream = StreamBuilder<Customer>
     .CreateNewStream("CustomerStream")
     .Stream() // In-app streaming (no external source)
     
@@ -344,7 +344,7 @@ Branches in **Cortex** provide a flexible way to process the same data stream in
 Here's a complete example combining several concepts:
 
 ```csharp
-        var stream = StreamBuilder<string, string>.CreateNewStream("MultiBranchStream")
+        var stream = StreamBuilder<string>.CreateNewStream("MultiBranchStream")
             .Stream()
             .AddBranch("UpperCaseBranch", branch =>
             {

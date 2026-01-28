@@ -32,7 +32,7 @@ class Program
     static void Main(string[] args)
     {
         // Create and configure the stream with a Map operator
-        var stream = StreamBuilder<int, int>.CreateNewStream("DoubleStream")
+        var stream = StreamBuilder<int>.CreateNewStream("DoubleStream")
             .Stream()
             .Map(x => x * 2)                  // Transform each integer by doubling it
             .Sink(x => Console.WriteLine(x))  // Output the transformed data to the console

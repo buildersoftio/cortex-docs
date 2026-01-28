@@ -34,7 +34,7 @@ using Cortex.Streams.Operators.Windows;
 
 public record Order(string CustomerId, decimal Amount, DateTime OrderTime);
 
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("Order Analytics")
     .Stream()
     .TumblingWindow<string>(
@@ -62,7 +62,7 @@ stream.Start();
 ```csharp
 public record PageView(string PageUrl, string UserId, DateTime Timestamp, string Country);
 
-var trafficStream = StreamBuilder<PageView, PageView>
+var trafficStream = StreamBuilder<PageView>
     .CreateNewStream("Traffic Analytics")
     .Stream()
     // Group page views into 15-minute windows by page URL
@@ -97,7 +97,7 @@ public record SensorReading(
     double Humidity, 
     DateTime Timestamp);
 
-var sensorStream = StreamBuilder<SensorReading, SensorReading>
+var sensorStream = StreamBuilder<SensorReading>
     .CreateNewStream("IoT Monitor")
     .Stream()
     // Filter out invalid readings
@@ -136,7 +136,7 @@ var config = WindowConfiguration<Order>.Create()
     .TriggerOnCount(100)  // Fire every 100 orders
     .Build();
 
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("Fast Order Processing")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -158,7 +158,7 @@ var config = WindowConfiguration<SensorReading>.Create()
     .WithStateMode(WindowStateMode.Accumulating)  // Include all data in each emission
     .Build();
 
-var stream = StreamBuilder<SensorReading, SensorReading>
+var stream = StreamBuilder<SensorReading>
     .CreateNewStream("Real-time Sensor Monitor")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -188,7 +188,7 @@ var config = WindowConfiguration<Event>.Create()
         Console.WriteLine($"Late event dropped: {evt} at {timestamp}"))
     .Build();
 
-var stream = StreamBuilder<Event, Event>
+var stream = StreamBuilder<Event>
     .CreateNewStream("Late Data Handler")
     .Stream()
     .AdvancedTumblingWindow<string>(
@@ -250,7 +250,7 @@ var config = WindowConfiguration<Event>.Create()
 
 ```csharp
 // Automatically created if not specified
-var stream = StreamBuilder<Event, Event>
+var stream = StreamBuilder<Event>
     .CreateNewStream("Demo")
     .Stream()
     .TumblingWindow<string>(
@@ -263,7 +263,7 @@ var stream = StreamBuilder<Event, Event>
 ### Named State Store
 
 ```csharp
-var stream = StreamBuilder<Event, Event>
+var stream = StreamBuilder<Event>
     .CreateNewStream("Demo")
     .Stream()
     .TumblingWindow<string>(
@@ -281,7 +281,7 @@ var rocksDbStore = new RocksDbStateStore<string, List<Order>>(
     path: "./window-state/orders",
     name: "order-windows");
 
-var stream = StreamBuilder<Order, Order>
+var stream = StreamBuilder<Order>
     .CreateNewStream("Persistent Orders")
     .Stream()
     .TumblingWindow<string>(
@@ -327,7 +327,7 @@ public class TransactionMonitor
             .OnLateEvent((txn, ts) => LogLateTransaction(txn, ts))
             .Build();
 
-        var stream = StreamBuilder<Transaction, Transaction>
+        var stream = StreamBuilder<Transaction>
             .CreateNewStream("Transaction Monitor")
             .Stream()
             // 5-minute tumbling windows per account

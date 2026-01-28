@@ -27,7 +27,7 @@ var source = new PulsarSourceOperator<MyEvent>(
     serviceUrl: "pulsar://localhost:6650",
     topic: "persistent://public/default/my-topic");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("PulsarConsumer")
     .Source(source)
     .Map(evt => evt)  // transform or filter as needed
@@ -72,7 +72,7 @@ var sink = new PulsarSinkOperator<MyEvent>(
     serviceUrl: "pulsar://localhost:6650",
     topic: "persistent://public/default/my-topic");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("PulsarProducer")
     .Source()
     .Sink(sink)

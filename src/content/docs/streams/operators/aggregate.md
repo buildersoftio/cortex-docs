@@ -44,7 +44,7 @@ class Program
         var wordCountStore = new RocksDbStateStore<string, int>("WordCountStore", "/path/to/rocksdb");
 
         // Create and configure the stream with an Aggregate operator
-        var stream = StreamBuilder<string, string>.CreateNewStream("WordCountStream")
+        var stream = StreamBuilder<string>.CreateNewStream("WordCountStream")
             .Stream()
             .AggregateSilently(
                 keySelector: word => word,                     // Group by the word itself

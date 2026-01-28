@@ -76,7 +76,7 @@ class Program
         var loggingOperator = new LoggingOperator<string>();
 
         // Create and configure the stream with Map, LoggingOperator, and Sink using the extension method
-        var stream = StreamBuilder<string, string>.CreateNewStream("CustomOperatorStream")
+        var stream = StreamBuilder<string>.CreateNewStream("CustomOperatorStream")
             .Stream()
             .Map(message => $"Transformed: {message}")                // Example transformation
             .UseOperator<string, string, string>(loggingOperator)      // Add custom LoggingOperator

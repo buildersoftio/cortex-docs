@@ -27,7 +27,7 @@ var source = new KafkaSourceOperator<MyMessage>(
     bootstrapServers: "localhost:9092",
     topic: "my-topic");
 
-var stream = StreamBuilder<MyMessage, MyMessage>
+var stream = StreamBuilder<MyMessage>
     .CreateNewStream("KafkaExample")
     .Source(source)
     .Map(msg => msg.Value)
@@ -57,7 +57,7 @@ var sink = new KafkaSinkOperator<MyMessage>(
     bootstrapServers: "localhost:9092",
     topic: "my-topic");
 
-var stream = StreamBuilder<MyMessage, MyMessage>
+var stream = StreamBuilder<MyMessage>
     .CreateNewStream("KafkaProducer")
     .Source()
     .Sink(sink)

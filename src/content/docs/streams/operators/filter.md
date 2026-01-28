@@ -32,7 +32,7 @@ class Program
     static void Main(string[] args)
     {
         // Create and configure the stream with a Filter operator
-        var stream = StreamBuilder<int, int>.CreateNewStream("OddNumberStream")
+        var stream = StreamBuilder<int>.CreateNewStream("OddNumberStream")
             .Stream()
             .Filter(x => x % 2 != 0)           // Allow only odd numbers
             .Sink(x => Console.WriteLine(x))  // Output the filtered data to the console

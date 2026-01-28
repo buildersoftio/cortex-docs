@@ -30,7 +30,7 @@ var sink = new AzureBlobStorageSinkOperator<MyEvent>(
     containerName: "my-data",
     directoryPath: "events");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("BlobSingleSink")
     .Source()
     .Sink(sink)
@@ -60,7 +60,7 @@ var sink = new AzureBlobStorageBulkSinkOperator<MyEvent>(
     batchSize: 50,
     flushInterval: TimeSpan.FromSeconds(15));
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("BlobBulkSink")
     .Source()
     .Sink(sink)

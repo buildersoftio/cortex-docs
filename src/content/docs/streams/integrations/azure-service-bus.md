@@ -28,7 +28,7 @@ var source = new AzureServiceBusSourceOperator<MyEvent>(
     connectionString: Environment.GetEnvironmentVariable("SERVICEBUS_CONNSTR"),
     queueOrTopicName: "orders");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("ServiceBusConsumer")
     .Source(source)
     .Sink(evt => Console.WriteLine($"Order received: {evt.Id}"))
@@ -72,7 +72,7 @@ var sink = new AzureServiceBusSinkOperator<MyEvent>(
     connectionString: Environment.GetEnvironmentVariable("SERVICEBUS_CONNSTR"),
     queueOrTopicName: "orders");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("ServiceBusProducer")
     .Source()
     .Sink(sink)

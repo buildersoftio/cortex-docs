@@ -26,7 +26,7 @@ using Cortex.Streams.Http;
 var sink = new HttpSinkOperator<MyEvent>(
     endpoint: "https://example.com/api/events");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("HttpSync")
     .Source()
     .Sink(sink)
@@ -55,7 +55,7 @@ var sink = new HttpSinkOperatorAsync<MyEvent>(
     maxRetries: 5,
     flushInterval: TimeSpan.FromSeconds(1));
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("HttpAsync")
     .Source()
     .Sink(sink)
@@ -85,7 +85,7 @@ var source = new HttpSourceOperator<WeatherResponse>(
     endpoint: "https://api.example.com/weather",
     pollInterval: TimeSpan.FromMinutes(1));
 
-var stream = StreamBuilder<WeatherResponse, WeatherResponse>
+var stream = StreamBuilder<WeatherResponse>
     .CreateNewStream("HttpSource")
     .Source(source)
     .Sink(data => Console.WriteLine($"Temp: {data.Temperature}"))

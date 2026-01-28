@@ -22,7 +22,7 @@ Stream Builders are designed to simplify the construction of stream processing p
 
 **Core Components:**
 
-- **StreamBuilder<TIn, TCurrent>**: The primary class used to build and configure streams.
+- **StreamBuilder<TIn>**: The primary class used to build and configure streams.
 - **Operators**: Components that define how data is processed within the stream (e.g., MapOperator, FilterOperator).
 - **State Stores**: Manage stateful operations within streams (e.g., RocksDbStateStore).
 - **Telemetry Providers**: Integrate monitoring and diagnostics (e.g., OpenTelemetry).
@@ -50,8 +50,8 @@ Start by creating a new stream using the `StreamBuilder` class. Specify the inpu
 ```csharp
 using Cortex.Streams;
 
-// Initialize a new stream with input type int and current type int
-var streamBuilder = StreamBuilder<int, int>.CreateNewStream("Example Stream");
+// Initialize a new stream with input type int
+var streamBuilder = StreamBuilder<int>.CreateNewStream("Example Stream");
 ```
 
 **Step 2: Add Operators**\
@@ -81,7 +81,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var stream = StreamBuilder<int, int>.CreateNewStream("Example Stream")
+        var stream = StreamBuilder<int>.CreateNewStream("Example Stream")
             .Stream()
             .Map(x => x * 2)
             .Sink(Console.WriteLine)
@@ -146,7 +146,7 @@ using Cortex.Telemetry;
 ITelemetryProvider telemetryProvider = new CustomTelemetryProvider();
 
 // Create and configure the stream with telemetry
-var streamBuilder = StreamBuilder<int, int>.CreateNewStream("Telemetry Stream")
+var streamBuilder = StreamBuilder<int>.CreateNewStream("Telemetry Stream")
     .WithTelemetry(telemetryProvider)
     .Stream()
     .Map(x => x * 2)
@@ -175,7 +175,7 @@ class Program
         // Initialize telemetry provider (e.g., OpenTelemetry)
         ITelemetryProvider telemetryProvider = new OpenTelemetryProvider();
 
-        var stream = StreamBuilder<int, int>.CreateNewStream("Telemetry Stream")
+        var stream = StreamBuilder<int>.CreateNewStream("Telemetry Stream")
             .Stream()
             .WithTelemetry(telemetryProvider)
             .Map(x => x * 2)
@@ -243,7 +243,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var stream = StreamBuilder<int, int>.CreateNewStream("Processing Stream")
+        var stream = StreamBuilder<int>.CreateNewStream("Processing Stream")
             .Stream()
             .Map(x => x + 5)
             .Sink(x => Console.WriteLine($"Processed Value: {x}"))
@@ -314,7 +314,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var stream = StreamBuilder<string, string>.CreateNewStream("Lifecycle Stream")
+        var stream = StreamBuilder<string>.CreateNewStream("Lifecycle Stream")
             .Stream()
             .Map(message => $"Processed: {message.ToUpper()}")
             .Sink(Console.WriteLine)

@@ -58,7 +58,7 @@ using Cortex.Streams.Operators.Windows;
 
 public record StockPrice(string Symbol, decimal Price, DateTime Timestamp);
 
-var stream = StreamBuilder<StockPrice, StockPrice>
+var stream = StreamBuilder<StockPrice>
     .CreateNewStream("Stock Moving Average")
     .Stream()
     .SlidingWindow<string>(
@@ -97,7 +97,7 @@ public record RateLimitStatus(
 
 const int MaxRequestsPerMinute = 100;
 
-var rateLimiter = StreamBuilder<ApiRequest, ApiRequest>
+var rateLimiter = StreamBuilder<ApiRequest>
     .CreateNewStream("API Rate Limiter")
     .Stream()
     // 1-minute sliding window with 10-second slides
@@ -144,7 +144,7 @@ public record TrafficSummary(
 // Keep historical baselines for anomaly detection
 Dictionary<string, double> historicalAverages = new();
 
-var anomalyDetector = StreamBuilder<NetworkPacket, NetworkPacket>
+var anomalyDetector = StreamBuilder<NetworkPacket>
     .CreateNewStream("Network Anomaly Detector")
     .Stream()
     // 30-second sliding window, sliding every 5 seconds
@@ -198,7 +198,7 @@ public record LeaderboardEntry(
     int Rank,
     DateTime SnapshotTime);
 
-var leaderboard = StreamBuilder<GameScore, GameScore>
+var leaderboard = StreamBuilder<GameScore>
     .CreateNewStream("Live Leaderboard")
     .Stream()
     // 1-hour sliding window, updated every minute
@@ -247,7 +247,7 @@ var config = WindowConfiguration<StockPrice>.Create()
     .WithStateMode(WindowStateMode.Accumulating)
     .Build();
 
-var stream = StreamBuilder<StockPrice, StockPrice>
+var stream = StreamBuilder<StockPrice>
     .CreateNewStream("Real-time Stock Tracker")
     .Stream()
     .AdvancedSlidingWindow<string>(
@@ -274,7 +274,7 @@ var config = WindowConfiguration<NetworkPacket>.Create()
     .WithStateMode(WindowStateMode.Discarding)
     .Build();
 
-var stream = StreamBuilder<NetworkPacket, NetworkPacket>
+var stream = StreamBuilder<NetworkPacket>
     .CreateNewStream("Packet Analyzer")
     .Stream()
     .AdvancedSlidingWindow<string>(
@@ -299,7 +299,7 @@ var config = WindowConfiguration<Event>.Create()
     })
     .Build();
 
-var stream = StreamBuilder<Event, Event>
+var stream = StreamBuilder<Event>
     .CreateNewStream("Late-tolerant Stream")
     .Stream()
     .AdvancedSlidingWindow<string>(
@@ -376,7 +376,7 @@ public class SentimentAnalyzer
             .WithAllowedLateness(TimeSpan.FromMinutes(5))
             .Build();
 
-        var stream = StreamBuilder<SocialPost, SocialPost>
+        var stream = StreamBuilder<SocialPost>
             .CreateNewStream("Sentiment Tracker")
             .Stream()
             // Filter out neutral posts for clearer signal

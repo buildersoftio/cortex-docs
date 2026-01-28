@@ -246,7 +246,7 @@ public class LateTolerantProcessor
             .WithStateMode(WindowStateMode.Accumulating)
             .Build();
 
-        var stream = StreamBuilder<Event, Event>
+        var stream = StreamBuilder<Event>
             .CreateNewStream("Late-Tolerant Processor")
             .Stream()
             .AdvancedTumblingWindow<string>(
@@ -418,7 +418,7 @@ public class AdvancedTransactionProcessor
             .OnLateEvent(HandleDroppedTransaction)
             .Build();
 
-        var stream = StreamBuilder<FinancialTransaction, FinancialTransaction>
+        var stream = StreamBuilder<FinancialTransaction>
             .CreateNewStream("Financial Transaction Processor")
             .Stream()
             // Filter suspicious transactions

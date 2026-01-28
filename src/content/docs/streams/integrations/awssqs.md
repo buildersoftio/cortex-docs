@@ -30,7 +30,7 @@ var source = new SQSSourceOperator<MyEvent>(
     queueUrl: "https://sqs.us-east-1.amazonaws.com/123456789012/my-queue",
     region: RegionEndpoint.USEast1);
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("SqsConsumer")
     .Source(source)
     .Sink(evt => Console.WriteLine($"Received: {evt.Id}"))
@@ -58,7 +58,7 @@ using Amazon;
 var sink = new SQSSinkOperator<MyEvent>(
     queueUrl: "https://sqs.us-east-1.amazonaws.com/123456789012/my-queue");
 
-var stream = StreamBuilder<MyEvent, MyEvent>
+var stream = StreamBuilder<MyEvent>
     .CreateNewStream("SqsProducer")
     .Source()
     .Sink(sink)
