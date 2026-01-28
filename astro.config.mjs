@@ -68,6 +68,7 @@ export default defineConfig({
 						},
 						{ label: 'Joins', slug: 'streams/joins' },
 						{ label: 'Branches', slug: 'streams/branches' },
+						{ label: 'Stream Performance & Async Processing', slug: 'streams/stream-performance' },
 					],
 					
 				},
