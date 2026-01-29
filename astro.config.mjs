@@ -89,6 +89,7 @@ export default defineConfig({
 						{ label: 'Clickhouse Store', slug: 'states/clickhouse' },
 						{ label: 'MongoDb Store', slug: 'states/mongodb' },
 						{ label: 'Cassandra Store', slug: 'states/cassandradb' },
+						{ label: 'DuckDb Store', slug: 'states/duckdb' },
 					],
 					
 				},
