@@ -66,7 +66,11 @@ export default defineConfig({
 							{ label: 'HTTP', slug: 'streams/integrations/http' },
 						    { label: 'Elasticsearch', slug: 'streams/integrations/elasticsearch' },]
 						},
-						{ label: 'Joins', slug: 'streams/joins' },
+						{ label: 'Joins', collapsed: true, items: [
+							
+							{ label: 'Stream-Table Joins', slug: 'streams/joins/stream-table-join' },
+							{ label: 'Stream-Stream Joins', slug: 'streams/joins/stream-stream-join' },]
+						},
 						{ label: 'Branches', slug: 'streams/branches' },
 						{ label: 'Stream Performance & Async Processing', slug: 'streams/stream-performance' },
 					],
@@ -118,6 +122,14 @@ export default defineConfig({
 						{ label: 'AnyOf', slug: 'types/anyof' },
 						{ label: 'OneOf', slug: 'types/oneof' },
 						{ label: 'AllOf', slug: 'types/allof' },
+					],
+					
+				},
+								{
+					label: 'Serialization',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'YAML', slug: 'serialization/yaml' },
 					],
 					
 				},
