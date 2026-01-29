@@ -41,6 +41,7 @@ export default defineConfig({
 							{ label: 'Filter Operators', slug: 'streams/operators/filter' },
 							{ label: 'Aggregate Operators', slug: 'streams/operators/aggregate' },
 							{ label: 'Sink Operators', slug: 'streams/operators/sink' },
+							{ label: 'FanOut', slug: 'streams/operators/fan-out' },
 							{ label: 'Custom Operators', slug: 'streams/operators/custom' },
 						
 							{ label: 'Window Operators', collapsed: true, items: [
@@ -143,6 +144,7 @@ export default defineConfig({
 							
 							{ label: 'Overview', slug: 'mediator-design-pattern/architecture/architecture-overview' },
 							{ label: 'Pipelines', slug: 'mediator-design-pattern/architecture/pipeline-behaviors' },
+							{ label: 'Transactional', slug: 'mediator-design-pattern/architecture/transactional-behaviors' },
 							{ label: 'Exception Handling', slug: 'mediator-design-pattern/architecture/exception-handling' },
 							{ label: 'Caching', slug: 'mediator-design-pattern/architecture/caching' },
 							{ label: 'Request Processors', slug: 'mediator-design-pattern/architecture/request-processors' },
