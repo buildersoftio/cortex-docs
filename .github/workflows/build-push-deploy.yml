@@ -113,8 +113,8 @@ jobs:
             sed -i "s|image: buildersoftdev/cortex-docs:.*|image: buildersoftdev/cortex-docs:${VERSION}|g" "$COMPOSE_FILE"
 
             cd ${{ env.DEPLOY_PATH }}
-            sudo docker compose pull
-            sudo docker compose up -d --remove-orphans
+            sudo docker compose --profile prod pull
+            sudo docker compose --profile prod up -d --remove-orphans
 
             echo "✅ Deployed buildersoftdev/cortex-docs:${VERSION}"
 
