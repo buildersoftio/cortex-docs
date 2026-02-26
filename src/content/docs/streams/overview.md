@@ -1,8 +1,8 @@
 ---
 title: Streams
 description: An overview of Cortex Streams
-sidebar:
-  badge: New
+# sidebar:
+#   badge: New
 ---
 
 Stream Builders are the foundational components in the Cortex Data Framework that allow developers to construct and configure stream processing pipelines. They provide a fluent API to add various operators, configure telemetry, and manage the lifecycle of streams. This section delves into the essentials of Stream Builders, guiding you through their overview, creation, telemetry configuration, building and starting streams, and managing their lifecycle.
